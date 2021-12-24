@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "umd", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "outDir": "./dist",
+        "lib": [
+            "es6",
+            "es7",
+            "DOM"
+        ],
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+}

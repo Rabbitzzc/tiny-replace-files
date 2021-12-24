@@ -1,0 +1,24 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env", // 根据浏览器和运行环境，自动的确定 babel 插件和 polyfills
+            {
+                "useBuiltIns": "usage", // 在每个文件中使用polyfill时，为polyfill添加特定导入。利用捆绑器只加载一次相同的polyfill。
+                "modules": false, // 启用将ES6模块语法转换为其他模块类型，设置为false不会转换模块。
+                "uglify": true // 压缩代码
+            }
+        ],
+        "@babel/typescript"
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": 3 // 指定 runtime-corejs 的版本，目前有 2 3 两个版本
+            }
+        ],
+        "@babel/proposal-object-rest-spread", // ...object
+        "@babel/plugin-proposal-class-properties", // static 属性
+        "@babel/plugin-syntax-dynamic-import" // import 动态引入
+    ]
+}

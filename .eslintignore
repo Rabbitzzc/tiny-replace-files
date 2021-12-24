@@ -1,0 +1,10 @@
+node_modules
+
+test/*
+
+dist/*
+
+build/*
+
+rollup.config.js
+tsconfig.json

@@ -1,0 +1,60 @@
+{
+    "name": "ts-npm-template-simple",
+    "version": "1.0.0",
+    "description": "使用 tsup 构建 ts lib",
+    "main": "dist/index.min.js",
+    "module": "dist/index.min.js",
+    "types": "dist/types/index.d.ts",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "build-fast": "tsup src/index.ts --format cjs,esm --minify",
+        "build": "yarn build-fast --dts",
+        "test": "uvu -r sucrase/register --ignore fixture",
+        "prepublishOnly": "yarn build-fast",
+        "prettier": "prettier  --write src/*",
+        "lint": "eslint",
+        "build:types": "tsc --emitDeclarationOnly",
+        "commit-msg": "commitlint -e $GIT_PARAMS",
+        "commit-name": "node .gitauthor.js",
+        "pre-push": "npx branch-name-lint",
+        "contributors:add": "all-contributors add",
+        "contributors:generate": "all-contributors generate"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/npm-template/js-npm-template.git"
+    },
+    "keywords": [
+        "js-npm-template",
+        "npm-template",
+        "js"
+    ],
+    "author": "Rabbitzzc",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/npm-template/js-npm-template/issues"
+    },
+    "homepage": "https://github.com/npm-template/js-npm-template#readme",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "files": [
+        "lib/index.min.js"
+    ],
+    "devDependencies": {
+        "@commitlint/cli": "11.0.0",
+        "@commitlint/config-conventional": "11.0.0",
+        "@typescript-eslint/eslint-plugin": "4.1.1",
+        "@typescript-eslint/parser": "4.1.1",
+        "all-contributors-cli": "6.17.2",
+        "branch-name-lint": "^1.4.0",
+        "eslint": "7.9.0",
+        "husky": "^4.2.5",
+        "prettier": "2.1.1",
+        "tsup": "5.11.7",
+        "typescript": "4.0.2",
+        "uvu": "0.5.2"
+    }
+}
