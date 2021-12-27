@@ -1,17 +1,17 @@
 import { OPTIONS_TYPES } from './utils/constance'
-import { parseOptions, getPathsAsync, replaceFactory } from './utils/index'
+import { parseOptions, getPathsAsync, getPathsSync, replaceFactory } from './utils/index'
 import * as fs from 'fs';
 /**
  * Async main
  */
-const replaceStringInFiles = (options: OPTIONS_TYPES) => {
+export const replaceStringInFiles = (options: OPTIONS_TYPES) => {
     try {
         options = parseOptions(options)
     } catch (error) {
         return Promise.reject(error)
     }
 
-    const { files, from, to, freeze } = options
+    const { files, freeze } = options
 
     // freeze mode, do not replace
     if (freeze) {
@@ -27,12 +27,22 @@ const replaceStringInFiles = (options: OPTIONS_TYPES) => {
 /**
  * Sync replaceStringInFiles
  */
-const replaceStringInFilesSync = (options: OPTIONS_TYPES) => {
+export const replaceStringInFilesSync = (options: OPTIONS_TYPES) => {
+    options = parseOptions(options)
 
+    const { files, freeze } = options
+    const paths = getPathsSync(files, options);
+
+    // freeze mode, do not replace
+    if (freeze) {
+        console.warn('running in freeze mode, no change...')
+    }
+    if (!Array.isArray(paths)) return replaceFileSync(paths, options)
+    return paths.map((path) => replaceFileSync(path, options))
 }
 
 /**
- * replace string in single file
+ * async replace string in single file
  */
 const replaceFileAsync = (file: string, options: OPTIONS_TYPES) => {
     const { from, to, encoding, freeze, countMatches } = options
@@ -53,4 +63,18 @@ const replaceFileAsync = (file: string, options: OPTIONS_TYPES) => {
             })
         })
     })
+}
+
+/**
+ * sync replace string in single file
+ */
+const replaceFileSync = (file: string, options: OPTIONS_TYPES) => {
+    const { from, to, encoding, freeze, countMatches } = options
+    const contents = fs.readFileSync(file, encoding);
+
+    const { result, newContents } = replaceFactory(contents, from, to, file, countMatches)
+
+    if (!result.changed || freeze) return result
+
+    fs.writeFileSync(file, newContents, encoding)
 }

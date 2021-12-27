@@ -11,7 +11,7 @@ export const parseOptions = (options: OPTIONS_TYPES) => {
 
 
 /**
- * use fast-glob to get all files
+ * async use fast-glob to get all files
  */
 export const getPathsAsync = (patterns: Strings, options: OPTIONS_TYPES) => {
     const { ignore, disableGlobs, glob: cfg } = options
@@ -25,11 +25,33 @@ export const getPathsAsync = (patterns: Strings, options: OPTIONS_TYPES) => {
 
 
 /**
+ * sync use fast-glob to get all files
+ */
+export const getPathsSync = (patterns: Strings, options: OPTIONS_TYPES) => {
+    const { ignore, disableGlobs, glob: cfg } = options
+
+    // disable globs, just ensure file(s) name
+    if (disableGlobs) return patterns
+
+    return globFilesSync(patterns, ignore, cfg)
+}
+
+
+
+/**
  * use fast-glob to  glob file(s)
  */
 export const globFilesAsync = (patterns: Strings, ignore: string[], cfg) => {
-    cfg = Object.assign({ ignore, nodir: true, dot: true }, cfg)
+    cfg = Object.assign({ ignore, nodir: true }, cfg)
     return fg(patterns, cfg)
+}
+
+/**
+ * sync use fast-glob to  glob file(s)
+ */
+export const globFilesSync = (patterns: Strings, ignore: string[], cfg) => {
+    cfg = Object.assign({ ignore, nodir: true }, cfg)
+    return fg.sync(patterns, cfg)
 }
 
 /**
