@@ -13,13 +13,13 @@ Scene: generate a templates, then replace initName to newName.
 
 ```sh
 # npm 
-npm install --save tiny-replace-files
+npm install --save tiny-replace-files fast-glob
 
 # yarn
-yarn add tiny-replace-files
+yarn add tiny-replace-files fast-glob
 
 # pnpm
-pnpm install --save tiny-replace-files
+pnpm install --save tiny-replace-files fast-glob
 ```
 
 ### usage
@@ -27,7 +27,7 @@ pnpm install --save tiny-replace-files
 #### Sync
 
 ```ts
-import { replaceStringInFiles } from 'tiny-replace-files'
+import { replaceStringInFilesSync } from 'tiny-replace-files'
 
 const options = {
   files: 'src/targets/index.js',
@@ -36,7 +36,7 @@ const options = {
 }
 
 # await
-const result = replaceStringInFiles(options)
+const result = replaceStringInFilesSync(options)
 console.info(result)
 /**
 [
@@ -148,6 +148,7 @@ const options = {
 
 #### Disable globs
 
+do not use fast-glob to get path. if you config this, you can uninstall fast-glob for reduce pkg size.
 ```ts
 const options = {
   disableGlobs: true,

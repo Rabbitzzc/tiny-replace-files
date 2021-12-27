@@ -1,16 +1,16 @@
 {
-    "name": "ts-npm-template-simple",
+    "name": "tiny-replace-files",
     "version": "1.0.0",
-    "description": "使用 tsup 构建 ts lib",
-    "main": "dist/index.min.js",
-    "module": "dist/index.min.js",
+    "description": "tiny replace string/regex in files.",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
     "types": "dist/types/index.d.ts",
     "directories": {
         "test": "test"
     },
     "scripts": {
-        "build-fast": "tsup src/index.ts --format cjs,esm --minify",
-        "build": "yarn build-fast --dts",
+        "build-fast": "tsup src/index.ts --dts --format cjs,esm --minify",
+        "build": "yarn build-fast",
         "watch": "tsup src/index.ts --watch",
         "test": "uvu -r sucrase/register --ignore fixture",
         "prepublishOnly": "yarn build-fast",
@@ -25,7 +25,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/npm-template/js-npm-template.git"
+        "url": "https://github.com/Rabbitzzc/tiny-replace-files"
     },
     "keywords": [
         "js-npm-template",
@@ -35,14 +35,15 @@
     "author": "Rabbitzzc",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/npm-template/js-npm-template/issues"
+        "url": "https://github.com/Rabbitzzc/tiny-replace-files/issues"
     },
-    "homepage": "https://github.com/npm-template/js-npm-template#readme",
+    "homepage": "https://github.com/Rabbitzzc/tiny-replace-files",
     "engines": {
         "node": ">=10.0.0"
     },
     "files": [
-        "lib/index.min.js"
+        "dist/index.js",
+        "dist/index.mjs"
     ],
     "peerDependencies": {
         "fast-glob": "3.2.7"
