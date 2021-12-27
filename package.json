@@ -13,7 +13,7 @@
         "build": "yarn build-fast",
         "watch": "tsup src/index.ts --watch",
         "test": "uvu -r sucrase/register --ignore fixture",
-        "prepublishOnly": "yarn build-fast",
+        "prepublishOnly": "yarn test && yarn build-fast",
         "prettier": "prettier  --write src/*",
         "lint": "eslint",
         "build:types": "tsc --emitDeclarationOnly",
