@@ -1,6 +1,7 @@
 import { OPTIONS_TYPES, Strings } from './constance'
-import * as fg from 'fast-glob';
 import * as fs from 'fs';
+
+const fg = require('fast-glob')
 
 
 /**
@@ -21,7 +22,7 @@ export const parseOptions = (options: OPTIONS_TYPES): OPTIONS_TYPES => {
 
     options.glob = options.glob ?? {};
 
-    const { files, from, to, ignore, encoding } = options;
+    const { files, from, to, ignore, encoding } = options
     if (typeof files === 'undefined') throw new Error('files type error')
 
     if (typeof from === 'undefined') throw new Error('from type error')
@@ -30,11 +31,11 @@ export const parseOptions = (options: OPTIONS_TYPES): OPTIONS_TYPES => {
 
     if (!Array.isArray(files)) options.files = [files]
 
-    if (!Array.isArray(ignore)) options.ignore = ignore ? [] : [ignore]
+    if (!Array.isArray(ignore)) options.ignore = !ignore ? [] : [ignore]
 
-    if (!options.encoding) options.encoding = 'utf-8'
+    if (!encoding) options.encoding = 'utf-8'
 
-    return Object.assign({}, defaults, options);
+    return Object.assign({}, defaults, options)
 }
 
 
