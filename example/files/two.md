@@ -1,0 +1,1 @@
+Think quest-2 is just for gaming? You’d be mistaken. quest 2 makes it possible to sit front row at a live concert, burn calories atop a glacier, hang out with friends all over the world, work, watch a movie and yes, even play a game.

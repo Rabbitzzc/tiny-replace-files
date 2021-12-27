@@ -86,7 +86,7 @@ export const globFilesSync = (patterns: Strings, ignore: string[], cfg) => {
 /**
  * replace main
  */
-export const replaceFactory = (contents, from, to, file, count: boolean) => {
+export const replaceFactory = (contents: string, from, to, file, count: boolean) => {
     const result: {
         file: any;
         matchCounts?: number;
@@ -100,6 +100,8 @@ export const replaceFactory = (contents, from, to, file, count: boolean) => {
 
     let item = from
     if (typeof from === 'function') item = from(file)
+    if (typeof item === 'string') item = new RegExp(item, 'g')
+
 
     if (count) {
         const matches = contents.match(item);
@@ -157,4 +159,6 @@ export const replaceFileSync = (file: string, options: OPTIONS_TYPES) => {
     if (!result.changed || freeze) return result
 
     fs.writeFileSync(file, newContents, encoding)
+
+    return result
 }

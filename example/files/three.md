@@ -1,0 +1,1 @@
+From multiplayer games to unique social experiences to joining up with friends at a live show or instructor-led workout, opportunities to meet and connect with others in VR are virtually everywhere you look.
