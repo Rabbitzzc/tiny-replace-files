@@ -81,7 +81,9 @@ See [CHANGELOG](./CHANGELOG.md).
 
 ## ✈️  TODO
 
-- [ ] init lib
-- [ ] 完成 replaceStringInFiles 函数开发
-- [ ] 完成同步开发
+- [x] init lib
+- [x] 完成 replaceStringInFiles 函数开发
+- [x] 完成同步函数开发
+- [ ] 完成测试
+- [ ] 生命周期？？
 

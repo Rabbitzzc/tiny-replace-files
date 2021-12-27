@@ -4,6 +4,7 @@
         "module": "umd", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
         "declaration": true,
         "declarationDir": "dist/types",
+        "moduleResolution": "node",
         "outDir": "./dist",
         "lib": [
             "es6",
@@ -17,5 +18,5 @@
     "exclude": [
         "node_modules",
         "dist"
-    ],
+    ]
 }
