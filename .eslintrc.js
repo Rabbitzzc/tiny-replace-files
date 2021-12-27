@@ -1,9 +1,6 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    extends: [
-        'alloy',
-        'alloy/typescript',
-    ],
+    extends: ['alloy', 'alloy/typescript'],
     plugins: ['@typescript-eslint'], // eslint 默认规则对 TS 的补充
     env: {
         browser: true,
@@ -13,6 +10,7 @@ module.exports = {
     },
     root: true,
     rules: {
+        'no-duplicate-imports': false,
         'for-direction': 'error',
         'getter-return': [
             'error',
@@ -22,10 +20,7 @@ module.exports = {
         ],
         'no-await-in-loop': 'off',
         'no-compare-neg-zero': 'error',
-        'no-cond-assign': [
-            'error',
-            'except-parens'
-        ],
+        'no-cond-assign': ['error', 'except-parens'],
         'no-console': 'off',
         'no-constant-condition': [
             'error',
@@ -37,9 +32,6 @@ module.exports = {
         'no-debugger': 'error',
         'no-dupe-args': 'error',
         'no-dupe-keys': 'error',
-        '@typescript-eslint/consistent-type-definitions': [
-            "error",
-            "interface"
-        ]
+        '@typescript-eslint/consistent-type-definitions': ['error', 'interface']
     }
 }

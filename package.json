@@ -43,14 +43,19 @@
     "files": [
         "lib/index.min.js"
     ],
+    "peerDependencies": {
+        "fast-glob": "3.2.7"
+    },
     "devDependencies": {
         "@commitlint/cli": "11.0.0",
         "@commitlint/config-conventional": "11.0.0",
+        "@types/node": "17.0.5",
         "@typescript-eslint/eslint-plugin": "4.1.1",
         "@typescript-eslint/parser": "4.1.1",
         "all-contributors-cli": "6.17.2",
         "branch-name-lint": "^1.4.0",
         "eslint": "7.9.0",
+        "eslint-config-alloy": "4.4.0",
         "husky": "^4.2.5",
         "prettier": "2.1.1",
         "tsup": "5.11.7",
