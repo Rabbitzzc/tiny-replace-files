@@ -1,6 +1,6 @@
 import { OPTIONS_TYPES } from './utils/constance'
-import { parseOptions, getPathsAsync, getPathsSync, replaceFactory } from './utils/index'
-import * as fs from 'fs';
+import { parseOptions, getPathsAsync, getPathsSync, replaceFileAsync, replaceFileSync } from './utils/index'
+
 /**
  * Async main
  */
@@ -39,42 +39,4 @@ export const replaceStringInFilesSync = (options: OPTIONS_TYPES) => {
     }
     if (!Array.isArray(paths)) return replaceFileSync(paths, options)
     return paths.map((path) => replaceFileSync(path, options))
-}
-
-/**
- * async replace string in single file
- */
-const replaceFileAsync = (file: string, options: OPTIONS_TYPES) => {
-    const { from, to, encoding, freeze, countMatches } = options
-
-    return new Promise((resolve, reject) => {
-        fs.readFile(file, { encoding }, (error, contents) => {
-            if (error) return reject(error)
-
-            // replace action
-            const { result, newContents } = replaceFactory(contents, from, to, file, countMatches)
-
-            if (!result.changed || freeze) return resolve(result)
-
-            // write action
-            fs.writeFile(file, newContents, encoding, error => {
-                if (error) return reject(error)
-                resolve(result)
-            })
-        })
-    })
-}
-
-/**
- * sync replace string in single file
- */
-const replaceFileSync = (file: string, options: OPTIONS_TYPES) => {
-    const { from, to, encoding, freeze, countMatches } = options
-    const contents = fs.readFileSync(file, encoding);
-
-    const { result, newContents } = replaceFactory(contents, from, to, file, countMatches)
-
-    if (!result.changed || freeze) return result
-
-    fs.writeFileSync(file, newContents, encoding)
 }
