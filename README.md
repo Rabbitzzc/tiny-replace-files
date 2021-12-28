@@ -6,7 +6,6 @@
   <blockquote>Like vscode, simple utility to quickly replace text in one or more files.</blockquote>
 </div>
 
-Scene: generate a templates, then replace initName to newName.
 ## 📦 Getting Started
 
 ### install
