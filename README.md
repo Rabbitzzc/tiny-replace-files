@@ -6,6 +6,13 @@
   <blockquote>Like vscode, simple utility to quickly replace text in one or more files.</blockquote>
 </div>
 
+![Travis (.org)](https://img.shields.io/travis/Rabbitzzc/tiny-replace-files)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/tiny-replace-files)
+![npm](https://img.shields.io/npm/v/tiny-replace-files)
+[![GitHub issues](https://img.shields.io/github/issues/Rabbitzzc/tiny-replace-files)](https://github.com/Rabbitzzc/tiny-replace-files/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Rabbitzzc/tiny-replace-files)](https://github.com/Rabbitzzc/tiny-replace-files/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Rabbitzzc/tiny-replace-files)](https://github.com/Rabbitzzc/tiny-replace-files/blob/master/LICENSE)
+
 ## 📦 Getting Started
 
 ### install
