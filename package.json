@@ -1,6 +1,6 @@
 {
     "name": "tiny-replace-files",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "tiny replace string/regex in files.",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -43,7 +43,8 @@
     },
     "files": [
         "dist/index.js",
-        "dist/index.mjs"
+        "dist/index.mjs",
+        "dist/index.d.ts"
     ],
     "peerDependencies": {
         "fast-glob": "3.2.7"
