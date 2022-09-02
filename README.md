@@ -206,9 +206,7 @@ See [CHANGELOG](./CHANGELOG.md).
 ## ✈️  TODO
 
 - [x] init lib
-- [x] 完成 replaceStringInFiles 函数开发
-- [x] 完成同步函数开发
-- [x] 完成测试
-- [ ] 生命周期？？
-- [ ] cli???
+- [x] support replaceStringInFiles
+- [x] support replaceStringInFilesSync
+- [x] support test
 
